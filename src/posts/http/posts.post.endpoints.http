@@ -1,0 +1,23 @@
+POST http://localhost:3300/posts
+Content-Type: application/json
+
+{
+    "title": "What's new with NestJS?",
+    "postType": "post",
+    "slug": "whats-new-with-nestjs",
+    "status": "draft",
+    "content": "NestJS is a progressive Node.js framework for building efficient, reliable and scalable server-side applications.",
+    "schema": "{\r\n    \"@context\": \"https:\/\/schema.org\",\r\n    \"@type\": \"Person\"\r\n  }",
+    "featuredImageUrl": "http://localhost.com/images/image1.jpg",
+    "publishOn": "2024-03-16T07:46:32+0000",
+    "tags": [
+        "nestJS",
+        "typescript"
+    ],
+    "metaOptions": [
+        {
+        "key": "testKey",
+        "value": 20
+        }
+    ]
+}
