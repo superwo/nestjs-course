@@ -58,6 +58,10 @@ export class Post {
   })
   featuredImageUrl?: string;
 
+  @Column({
+    type: 'timestamp',
+    nullable: true,
+  })
   publishOn?: Date;
 
   tags?: string[];
