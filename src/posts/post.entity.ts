@@ -5,9 +5,11 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { postType } from './enums/postType.enum';
-import { postStatus } from './enums/postStatus.enum';
+
+// import { CreatePostMetaOptionsDto } from '../meta-options/dtos/create-post-meta-options.dto';
 import { MetaOption } from 'src/meta-options/meta-option.entity';
+import { postStatus } from './enums/postStatus.enum';
+import { postType } from './enums/postType.enum';
 
 @Entity()
 export class Post {
@@ -65,7 +67,7 @@ export class Post {
   featuredImageUrl?: string;
 
   @Column({
-    type: 'timestamp',
+    type: 'timestamp', // 'datetime' in mysql
     nullable: true,
   })
   publishOn?: Date;
@@ -74,5 +76,6 @@ export class Post {
   @JoinColumn()
   metaOptions?: MetaOption;
 
+  // Work on these in lecture on relationships
   tags?: string[];
 }

@@ -107,7 +107,7 @@ export class CreatePostDto {
   tags?: string[];
 
   @ApiPropertyOptional({
-    type: 'object',
+    // type: 'object',
     required: false,
     items: {
       type: 'object',
