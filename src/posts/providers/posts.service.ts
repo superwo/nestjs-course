@@ -30,19 +30,24 @@ export class PostsService {
    * Creating new post
    */
   public async create(createPostDto: CreatePostDto) {
+    // Find the author
+    const author = await this.usersService.findOneById(createPostDto.authorId);
+
     // Create the post
+    if (!author) {
+      throw new Error('Author not found');
+    }
+
     const post = this.postsRepository.create({
       ...createPostDto,
       metaOptions: createPostDto.metaOptions ?? undefined,
+      author: author,
     });
 
     return await this.postsRepository.save(post);
   }
 
-  public async findAll(userId: string) {
-    const user = this.usersService.findOneById(userId);
-    console.log(user);
-
+  public async findAll() {
     const posts = await this.postsRepository.find({});
 
     return posts;
